@@ -1,0 +1,85 @@
+ALGORITHM LinearData
+VAR
+    tab1 : ARRAY_OF INTEGER[4];
+    tab2 : ARRAY_OF INTEGER[4];
+    i,j,Somm,Som1,Som2,A,B,C,D,E,F,G,H,count : INTEGER;
+    htab1 : HASH_TABLE<INTEGER,INTEGER>
+    htab2 : HASH_TABLE<INTEGER,INTEGER>
+BEGIN
+    
+    // METHODE AVEC ARRAY
+    
+    FOR i FROM 0 TO 3 STEP step  DO
+        write ("Saisissez l'ensemble 1")
+        read (tab1[i]) 
+    END_FOR
+    
+    FOR j FROM 0 TO 3 STEP step  DO
+        write ("Saisissez l'ensemble 2")
+        read (tab2[j]) 
+    END_FOR
+
+    
+    
+    FOR i FROM 0 TO 3 STEP step  DO
+        
+        WHILE (tab1[i] <> tab2[i]) DO
+            Som1 := tab1[i] ;
+        END_WHILE
+        
+    END_FOR
+
+    FOR i FROM 0 TO 3 STEP step  DO
+        WHILE (tab2[i] <> tab1[i]) DO
+            Som2 := tab2[i] ;
+        END_WHILE
+    END_FOR
+
+
+    Somm := Som1 + Som2 ;
+
+    write ("la somme des elements est ",Somm)
+
+
+    
+    // METHODE TABLE HACHAGE
+
+    HASH_TABLE<INTEGER,INTEGER> ;
+    
+    write ("Saisissez les elements du premier ensemble");
+    read (A,B,C,D) ;
+    htab.insert(1,A);
+    htab.insert(1,B);
+    htab.insert(1,C);
+    htab.insert(1,D);
+    read (htab1);
+
+    
+
+    htab2 : HASH_TABLE<INTEGER,INTEGER>
+
+    write ("Saisissez les elements du deuxieme ensemble");
+    read (E,F,G,H) ;
+    htab.insert(1,E);
+    htab.insert(1,F);
+    htab.insert(1,G);
+    htab.insert(1,H);
+    read (htab2);
+
+    FOR i FROM 0 TO 3 STEP step  DO
+        WHILE (htab[i] <> htab2[i] ) DO
+            count := htab1[i] ;
+        END_WHILE
+    END_FOR
+
+    FOR i FROM 0 TO 3 STEP step  DO
+        WHILE (htab2[i]  <> htab1[i]) DO
+            count := count + htab2[i] ;
+        END_WHILE
+    END_FOR
+
+    write("La somme des elements distincs est ",count) ;
+    
+
+
+END
